@@ -38,30 +38,35 @@ class TopAllActivity : AppCompatActivity() {
             showLoading(it)
         })
 
-        if (top == "Now Playing") {
-            mainViewModel.listAiring.observe(this, {
-                val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
-                binding.rvTopAll.adapter = topGridAdapter
-                binding.rvTopAll.setHasFixedSize(true)
-            })
-        } else if (top == "Popular") {
-            mainViewModel.listPopular.observe(this, {
-                val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
-                binding.rvTopAll.adapter = topGridAdapter
-                binding.rvTopAll.setHasFixedSize(true)
-            })
-        } else if (top == "Coming Soon") {
-            mainViewModel.listUpcoming.observe(this, {
-                val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
-                binding.rvTopAll.adapter = topGridAdapter
-                binding.rvTopAll.setHasFixedSize(true)
-            })
-        } else if (top == "Movie") {
-            mainViewModel.listMovie.observe(this, {
-                val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
-                binding.rvTopAll.adapter = topGridAdapter
-                binding.rvTopAll.setHasFixedSize(true)
-            })
+        when (top) {
+            "Now Playing" -> {
+                mainViewModel.listAiring.observe(this, {
+                    val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
+                    binding.rvTopAll.adapter = topGridAdapter
+                    binding.rvTopAll.setHasFixedSize(true)
+                })
+            }
+            "Popular" -> {
+                mainViewModel.listPopular.observe(this, {
+                    val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
+                    binding.rvTopAll.adapter = topGridAdapter
+                    binding.rvTopAll.setHasFixedSize(true)
+                })
+            }
+            "Coming Soon" -> {
+                mainViewModel.listUpcoming.observe(this, {
+                    val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
+                    binding.rvTopAll.adapter = topGridAdapter
+                    binding.rvTopAll.setHasFixedSize(true)
+                })
+            }
+            "Movie" -> {
+                mainViewModel.listMovie.observe(this, {
+                    val topGridAdapter = TopGridAdapter(it as ArrayList<TopItem>)
+                    binding.rvTopAll.adapter = topGridAdapter
+                    binding.rvTopAll.setHasFixedSize(true)
+                })
+            }
         }
 
     }

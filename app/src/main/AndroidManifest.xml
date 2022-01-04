@@ -15,15 +15,6 @@
             android:name=".ui.activity.TopAllActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.activity.UpcomingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.PopularActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.AiringActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.activity.DetailActivity"
             android:exported="false" />
         <activity

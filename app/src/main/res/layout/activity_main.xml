@@ -68,6 +68,17 @@
             android:layout_height="match_parent"
             android:paddingBottom="16dp">
 
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerSeeAllAiring"
                 android:layout_width="match_parent"
@@ -77,7 +88,7 @@
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/viewPager">
 
                 <TextView
                     android:id="@+id/labelAiring"
@@ -117,54 +128,6 @@
                 tools:listitem="@layout/item_row_cover" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/containerSeeAllPopular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvAiring">
-
-                <TextView
-                    android:id="@+id/labelPopular"
-                    style="@style/TextView.OpenSansBold16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/popular"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/buttonSeeAllPopular"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="@string/contentdescription"
-                    android:src="@drawable/ic_angle_small_right"
-                    app:layout_constraintBottom_toBottomOf="@+id/labelPopular"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/labelPopular"
-                    tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck,ImageContrastCheck" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPopular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:clipToPadding="false"
-                android:orientation="horizontal"
-                android:paddingHorizontal="13dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/containerSeeAllPopular"
-                tools:listitem="@layout/item_row_cover" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerSeeAllUpcoming"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -173,7 +136,7 @@
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvPopular">
+                app:layout_constraintTop_toBottomOf="@+id/rvAiring">
 
                 <TextView
                     android:id="@+id/labelUpcoming"

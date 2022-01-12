@@ -42,9 +42,6 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.isLoading.observe(this, {
             showLoading(it)
         })
-        mainViewModel.isVisible.observe(this, {
-            showContainer(it)
-        })
         mainViewModel.listPopular.observe(this, {
             imageSliderAdapter = ImageSliderAdapter(binding.viewPager, it as ArrayList<TopItem>)
             binding.viewPager.adapter = imageSliderAdapter
@@ -81,9 +78,6 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.isLoading.observe(this, {
             showLoading(it)
         })
-        mainViewModel.isVisible.observe(this, {
-            showContainer(it)
-        })
         mainViewModel.listAiring.observe(this, {
             val topAdapter = TopAdapter(it as ArrayList<TopItem>)
             binding.rvAiring.adapter = topAdapter
@@ -96,9 +90,6 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.isLoading.observe(this, {
             showLoading(it)
         })
-        mainViewModel.isVisible.observe(this, {
-            showContainer(it)
-        })
         mainViewModel.listUpcoming.observe(this, {
             val topAdapter = TopAdapter(it as ArrayList<TopItem>)
             binding.rvUpcoming.adapter = topAdapter
@@ -110,9 +101,6 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
         mainViewModel.isLoading.observe(this, {
             showLoading(it)
-        })
-        mainViewModel.isVisible.observe(this, {
-            showContainer(it)
         })
         mainViewModel.listMovie.observe(this, {
             val topAdapter = TopAdapter(it as ArrayList<TopItem>)
@@ -142,12 +130,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-    }
+        binding.progressbarPopular.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBarAiring.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBarUpcoming.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.progressBarMovie.visibility = if (isLoading) View.VISIBLE else View.GONE
 
-    private fun showContainer(isVisible: Boolean) {
-        binding.containerSeeAllAiring.visibility = if (isVisible) View.VISIBLE else View.GONE
-        binding.containerSeeAllMovie.visibility = if (isVisible) View.VISIBLE else View.GONE
-        binding.containerSeeAllUpcoming.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 }

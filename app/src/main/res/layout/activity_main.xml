@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/toolbar"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/contentdescription"/>
+                android:contentDescription="@string/content_description"/>
 
             <TextView
                 android:id="@+id/labelAppName"
@@ -77,7 +77,301 @@
                 android:paddingEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+            </androidx.viewpager2.widget.ViewPager2>
+
+            <ProgressBar
+                android:id="@+id/progressbarPopular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/viewPager" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerGenre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewPager">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerAction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/containerAdventure"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivAction"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_action"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelAction"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/action"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivAction"
+                        app:layout_constraintStart_toStartOf="@+id/ivAction"
+                        app:layout_constraintTop_toBottomOf="@+id/ivAction" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerAdventure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/containerComedy"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerAction"
+                    app:layout_constraintTop_toTopOf="@+id/containerAction">
+
+                    <ImageView
+                        android:id="@+id/ivAdventure"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_adventure"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelAdventure"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/adventure"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivAdventure"
+                        app:layout_constraintStart_toStartOf="@+id/ivAdventure"
+                        app:layout_constraintTop_toBottomOf="@+id/ivAdventure" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerComedy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/containerMystery"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerAdventure"
+                    app:layout_constraintTop_toTopOf="@+id/containerAdventure">
+
+                    <ImageView
+                        android:id="@+id/ivComedy"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_comedy"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelComedy"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/comedy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivComedy"
+                        app:layout_constraintStart_toStartOf="@+id/ivComedy"
+                        app:layout_constraintTop_toBottomOf="@+id/ivComedy" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerMystery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerComedy"
+                    app:layout_constraintTop_toTopOf="@+id/containerComedy">
+
+                    <ImageView
+                        android:id="@+id/ivMystery"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_mystery"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelMystery"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/mystery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivMystery"
+                        app:layout_constraintStart_toStartOf="@+id/ivMystery"
+                        app:layout_constraintTop_toBottomOf="@+id/ivMystery" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerDrama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/containerEcchi"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerAction">
+
+                    <ImageView
+                        android:id="@+id/ivDrama"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_drama"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelDrama"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/drama"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivDrama"
+                        app:layout_constraintStart_toStartOf="@+id/ivDrama"
+                        app:layout_constraintTop_toBottomOf="@+id/ivDrama" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerEcchi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/containerFantasy"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerDrama"
+                    app:layout_constraintTop_toTopOf="@+id/containerDrama">
+
+                    <ImageView
+                        android:id="@+id/ivEcchi"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_ecchi"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelEcchi"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/ecchi"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivEcchi"
+                        app:layout_constraintStart_toStartOf="@+id/ivEcchi"
+                        app:layout_constraintTop_toBottomOf="@+id/ivEcchi" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerFantasy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/containerMore"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerEcchi"
+                    app:layout_constraintTop_toTopOf="@+id/containerEcchi">
+
+                    <ImageView
+                        android:id="@+id/ivFantasy"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_fantasy"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelFantasy"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/fantasy"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivFantasy"
+                        app:layout_constraintStart_toStartOf="@+id/ivFantasy"
+                        app:layout_constraintTop_toBottomOf="@+id/ivFantasy" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerMore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/containerFantasy"
+                    app:layout_constraintTop_toTopOf="@+id/containerFantasy">
+
+                    <ImageView
+                        android:id="@+id/ivMore"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:contentDescription="@string/content_description"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_more"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/labelMore"
+                        style="@style/TextView.OpenSansRegular14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/more"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ivMore"
+                        app:layout_constraintStart_toStartOf="@+id/ivMore"
+                        app:layout_constraintTop_toBottomOf="@+id/ivMore" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerSeeAllAiring"
@@ -87,8 +381,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewPager">
+                app:layout_constraintTop_toBottomOf="@+id/containerGenre">
 
                 <TextView
                     android:id="@+id/labelAiring"
@@ -104,7 +399,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:background="@android:color/transparent"
-                    android:contentDescription="@string/contentdescription"
+                    android:contentDescription="@string/content_description"
                     android:src="@drawable/ic_angle_small_right"
                     app:layout_constraintBottom_toBottomOf="@+id/labelAiring"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +421,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/containerSeeAllAiring"
                 tools:listitem="@layout/item_row_cover" />
+
+            <ProgressBar
+                android:id="@+id/progressBarAiring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/rvAiring"
+                app:layout_constraintEnd_toEndOf="@+id/rvAiring"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rvAiring" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerSeeAllUpcoming"
@@ -152,7 +456,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:background="@android:color/transparent"
-                    android:contentDescription="@string/contentdescription"
+                    android:contentDescription="@string/content_description"
                     android:src="@drawable/ic_angle_small_right"
                     app:layout_constraintBottom_toBottomOf="@+id/labelUpcoming"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +478,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/containerSeeAllUpcoming"
                 tools:listitem="@layout/item_row_cover" />
+
+            <ProgressBar
+                android:id="@+id/progressBarUpcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/rvUpcoming"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rvUpcoming" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerSeeAllMovie"
@@ -200,7 +513,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:background="@android:color/transparent"
-                    android:contentDescription="@string/contentdescription"
+                    android:contentDescription="@string/content_description"
                     android:src="@drawable/ic_angle_small_right"
                     app:layout_constraintBottom_toBottomOf="@+id/labelMovie"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -224,14 +537,13 @@
                 tools:listitem="@layout/item_row_cover" />
 
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/progressBarMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="200dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/rvMovie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/rvMovie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

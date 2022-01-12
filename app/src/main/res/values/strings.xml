@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyAnimeList</string>
     <string name="popular">Popular</string>
-    <string name="contentdescription">contentDescription</string>
+    <string name="content_description">contentDescription</string>
     <string name="score">Score</string>
     <string name="now_playing">Now Playing</string>
     <string name="movie">Movie</string>
@@ -10,4 +10,12 @@
     <string name="episode">&#160;Episodes</string>
     <string name="coming_soon">Coming Soon</string>
     <string name="tv">TV</string>
+    <string name="action">Action</string>
+    <string name="adventure">Adventure</string>
+    <string name="comedy">Comedy</string>
+    <string name="mystery">Mystery</string>
+    <string name="drama">Drama</string>
+    <string name="ecchi">Ecchi</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="more">More</string>
 </resources>

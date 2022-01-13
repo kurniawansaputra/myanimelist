@@ -27,9 +27,6 @@ class MainViewModel: ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _isVisible = MutableLiveData<Boolean>()
-    val isVisible: LiveData<Boolean> = _isVisible
-
     init {
         getPopular()
         getAiring()
@@ -38,12 +35,10 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getPopular() {
-        _isVisible.value = false
         _isLoading.value = true
         val client = ApiConfig.getApiService().getListPopular()
         client.enqueue(object : Callback<TopResponse> {
             override fun onResponse(call: Call<TopResponse>, response: Response<TopResponse>) {
-                _isVisible.value = true
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _listPopular.value = response.body()?.top as List<TopItem>?
@@ -60,12 +55,10 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getAiring() {
-        _isVisible.value = false
         _isLoading.value = true
         val client = ApiConfig.getApiService().getListAiring()
         client.enqueue(object : Callback<TopResponse> {
             override fun onResponse(call: Call<TopResponse>, response: Response<TopResponse>) {
-                _isVisible.value = true
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _listAiring.value = response.body()?.top as List<TopItem>?
@@ -82,12 +75,10 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getMovie() {
-        _isVisible.value = false
         _isLoading.value = true
         val client = ApiConfig.getApiService().getListMovie()
         client.enqueue(object : Callback<TopResponse> {
             override fun onResponse(call: Call<TopResponse>, response: Response<TopResponse>) {
-                _isVisible.value = true
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _listMovie.value = response.body()?.top as List<TopItem>?
@@ -104,12 +95,10 @@ class MainViewModel: ViewModel() {
     }
 
     private fun getUpcoming() {
-        _isVisible.value = false
         _isLoading.value = true
         val client = ApiConfig.getApiService().getListUpcoming()
         client.enqueue(object : Callback<TopResponse> {
             override fun onResponse(call: Call<TopResponse>, response: Response<TopResponse>) {
-                _isVisible.value = true
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _listUpcoming.value = response.body()?.top as List<TopItem>?
@@ -124,6 +113,7 @@ class MainViewModel: ViewModel() {
             }
         })
     }
+
     companion object{
         private const val TAG = "MainViewModel"
     }

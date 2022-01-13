@@ -27,6 +27,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -38,13 +39,14 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:paddingBottom="16dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView3"
                     android:layout_width="80dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
@@ -55,16 +57,17 @@
                         android:id="@+id/ivCover"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:contentDescription="@string/contentdescription"
+                        android:contentDescription="@string/content_description"
                         android:src="@color/black" />
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="24dp"
+                    android:layout_marginEnd="16dp"
                     app:layout_constraintBottom_toBottomOf="@+id/cardView3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardView3"
@@ -118,12 +121,12 @@
                         app:layout_constraintTop_toTopOf="@+id/textTitle">
 
                         <ImageView
-                            android:id="@+id/ivRating"
+                            android:id="@+id/ivScore"
                             android:layout_width="14dp"
                             android:layout_height="14dp"
                             android:layout_marginStart="2dp"
                             android:layout_marginEnd="2dp"
-                            android:contentDescription="@string/contentdescription"
+                            android:contentDescription="@string/content_description"
                             android:src="@drawable/ic_rating"
                             app:layout_constraintBottom_toBottomOf="@+id/textScore"
                             app:layout_constraintEnd_toStartOf="@+id/textScore"
@@ -147,6 +150,127 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/labelSynopsis"
+                    style="@style/TextView.OpenSansBold14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/synopsis"
+                    app:layout_constraintStart_toStartOf="@+id/cardView3"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView3" />
+
+                <me.biubiubiu.justifytext.library.JustifyTextView
+                    android:id="@+id/textSynopsis"
+                    style="@style/TextView.OpenSansRegular14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
+                    app:layout_constraintStart_toStartOf="@+id/labelSynopsis"
+                    app:layout_constraintTop_toBottomOf="@+id/labelSynopsis" />
+
+                <TextView
+                    android:id="@+id/labelTrailer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/trailer"
+                    style="@style/TextView.OpenSansBold14"
+                    app:layout_constraintStart_toStartOf="@+id/textSynopsis"
+                    app:layout_constraintTop_toBottomOf="@+id/textSynopsis" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardTrailer"
+                    android:layout_width="220dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="@+id/labelTrailer"
+                    app:layout_constraintTop_toBottomOf="@+id/labelTrailer">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivTrailer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/content_description"
+                            android:src="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/ivPlay"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="16dp"
+                            android:src="@drawable/ic_play"
+                            android:contentDescription="@string/content_description"
+                            app:layout_constraintBottom_toBottomOf="@+id/textTitleTrailer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textTitleTrailer" />
+
+                        <TextView
+                            android:id="@+id/textTitleTrailer"
+                            style="@style/TextView.OpenSansMedium14"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/ivPlay"
+                            tools:text="Kimi no Wa" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/labelGenres"
+                    style="@style/TextView.OpenSansBold14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/genres"
+                    app:layout_constraintStart_toStartOf="@+id/cardTrailer"
+                    app:layout_constraintTop_toBottomOf="@+id/cardTrailer" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    android:paddingHorizontal="13dp"
+                    tools:listitem="@layout/item_row_genre"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelGenres" />
+
+                <include
+                    android:id="@+id/loadingDetail"
+                    layout="@layout/layout_loading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

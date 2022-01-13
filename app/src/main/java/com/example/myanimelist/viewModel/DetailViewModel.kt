@@ -14,13 +14,22 @@ class DetailViewModel: ViewModel() {
     private val _detail = MutableLiveData<DetailResponse>()
     val detail: LiveData<DetailResponse> = _detail
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _isRefresh = MutableLiveData<Boolean>()
+    val isRefresh: LiveData<Boolean> = _isRefresh
+
     fun getDetail(id: Int) {
+        _isLoading.value = true
         val client = ApiConfig.getApiService().getDetail(id)
         client.enqueue(object : Callback<DetailResponse> {
             override fun onResponse(
                 call: Call<DetailResponse>,
                 response: Response<DetailResponse>
             ) {
+                _isLoading.value = false
+                _isRefresh.value = false
                 if (response.isSuccessful) {
                     _detail.value = response.body() as DetailResponse
                 } else {
@@ -29,6 +38,8 @@ class DetailViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                _isLoading.value = false
+                _isRefresh.value = false
                 Log.e(TAG, "onFailure: ${t.message.toString()}")
             }
 

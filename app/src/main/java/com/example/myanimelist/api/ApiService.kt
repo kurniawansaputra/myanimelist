@@ -23,10 +23,6 @@ interface ApiService {
     fun getListUpcoming(
     ): Call<TopResponse>
 
-    @GET("top/anime/1/tv")
-    fun getListTv(
-    ): Call<TopResponse>
-
     @GET("anime/{id}")
     fun getDetail(
         @Path("id") id: Int

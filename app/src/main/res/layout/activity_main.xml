@@ -61,10 +61,11 @@
                 app:layout_constraintTop_toTopOf="parent">
             </androidx.viewpager2.widget.ViewPager2>
 
-            <ProgressBar
-                android:id="@+id/progressbarPopular"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+            <include
+                android:id="@+id/loadingPopular"
+                layout="@layout/layout_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/viewPager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -403,10 +404,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/containerSeeAllAiring"
                 tools:listitem="@layout/item_row_cover" />
 
-            <ProgressBar
-                android:id="@+id/progressBarAiring"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+            <include
+                android:id="@+id/loadingAiring"
+                layout="@layout/layout_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/rvAiring"
                 app:layout_constraintEnd_toEndOf="@+id/rvAiring"
                 app:layout_constraintStart_toStartOf="parent"
@@ -460,10 +462,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/containerSeeAllUpcoming"
                 tools:listitem="@layout/item_row_cover" />
 
-            <ProgressBar
-                android:id="@+id/progressBarUpcoming"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+            <include
+                android:id="@+id/loadingUpcoming"
+                layout="@layout/layout_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/rvUpcoming"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -517,10 +520,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/containerSeeAllMovie"
                 tools:listitem="@layout/item_row_cover" />
 
-            <ProgressBar
-                android:id="@+id/progressBarMovie"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+            <include
+                android:id="@+id/loadingMovie"
+                layout="@layout/layout_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="@+id/rvMovie"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

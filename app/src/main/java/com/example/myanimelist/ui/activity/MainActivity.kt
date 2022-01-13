@@ -162,10 +162,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLoading(isLoading: Boolean) {
-        binding.progressbarPopular.visibility = if (isLoading) View.VISIBLE else View.GONE
-        binding.progressBarAiring.visibility = if (isLoading) View.VISIBLE else View.GONE
-        binding.progressBarUpcoming.visibility = if (isLoading) View.VISIBLE else View.GONE
-        binding.progressBarMovie.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.loadingPopular.containerLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.loadingAiring.containerLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.loadingUpcoming.containerLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
+        binding.loadingMovie.containerLoading.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="3dp"
+    app:cardCornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/textGenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Adventure"
+        style="@style/TextView.OpenSansRegular14"
+        android:padding="8dp"/>
+
+</androidx.cardview.widget.CardView>

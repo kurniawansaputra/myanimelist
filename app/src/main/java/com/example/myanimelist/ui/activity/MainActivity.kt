@@ -1,16 +1,22 @@
 package com.example.myanimelist.ui.activity
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myanimelist.R
 import com.example.myanimelist.adapter.ImageSliderAdapter
 import com.example.myanimelist.adapter.TopAdapter
 import com.example.myanimelist.databinding.ActivityMainBinding
@@ -29,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
 
         setPopular()
         setAiring()
@@ -126,6 +134,30 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra(TopAllActivity.EXTRA_TOP, "Movie")
                 startActivity(intent)
             }
+            containerAction.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.action, Toast.LENGTH_SHORT).show()
+            }
+            containerAdventure.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.adventure, Toast.LENGTH_SHORT).show()
+            }
+            containerComedy.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.comedy, Toast.LENGTH_SHORT).show()
+            }
+            containerMystery.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.mystery, Toast.LENGTH_SHORT).show()
+            }
+            containerDrama.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.drama, Toast.LENGTH_SHORT).show()
+            }
+            containerEcchi.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.ecchi, Toast.LENGTH_SHORT).show()
+            }
+            containerFantasy.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.fantasy, Toast.LENGTH_SHORT).show()
+            }
+            containerMore.setOnClickListener {
+                Toast.makeText(this@MainActivity, R.string.more, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -134,6 +166,28 @@ class MainActivity : AppCompatActivity() {
         binding.progressBarAiring.visibility = if (isLoading) View.VISIBLE else View.GONE
         binding.progressBarUpcoming.visibility = if (isLoading) View.VISIBLE else View.GONE
         binding.progressBarMovie.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.option_menu, menu)
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.queryHint = resources.getString(R.string.search_hint)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
+                searchView.clearFocus()
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+
+        })
+        return true
     }
 }

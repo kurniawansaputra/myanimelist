@@ -18,4 +18,6 @@
     <string name="ecchi">Ecchi</string>
     <string name="fantasy">Fantasy</string>
     <string name="more">More</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search</string>
 </resources>
